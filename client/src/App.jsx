@@ -11,7 +11,21 @@ import './App.css'
 
 const key = 'v85qtsvytunc'
 const client = StreamChat.getInstance(key)
-const authToken = false
+const cookies = new Cookies()
+const authToken = cookies.get('token')
+
+// Create user 
+if (authToken) {
+  client.connectUser({
+    id: cookies.get('userID'),
+    name: cookies.get('username'),
+    fullName: cookies.get('fullName'),
+    image: cookies.get('avatarURL'),
+    hashedPassword: cookies.get('hashedPassword'),
+    phoneNumber: cookies.get('phoneNumber'),
+  }, authToken)
+}
+
 
 const App = () => {
   if (!authToken) return <Auth/>
