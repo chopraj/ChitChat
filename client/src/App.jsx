@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StreamChat } from 'stream-chat'
 import { Chat } from 'stream-chat-react'
 import Cookies from 'universal-cookie'
@@ -7,6 +7,7 @@ import ChannelContainer from './components/ChannelContainer'
 import ChannelListContainer from './components/ChannelListContainer'
 import Auth from './components/Auth'
 import './App.css'
+import 'stream-chat-react/dist/css/index.css'
 
 
 const key = 'v85qtsvytunc'
@@ -28,15 +29,28 @@ if (authToken) {
 
 
 const App = () => {
+  const [createType, setCreateType] = useState('')
+  const [creating, setCreating] = useState(false)
+  const [editing, setEditing] = useState(false)
+  
+
   if (!authToken) return <Auth/>
   return (
     <div className='app__wrapper'>
         <Chat client={client} theme='team light'>
             <ChannelListContainer
-            
+            //  TODO: Refactor to use contextAPI
+              creating={creating}
+              setCreating={setCreating}
+              createType={createType}
+              setEditing={setEditing}
             />
             <ChannelContainer
-            
+              creating={creating}
+              setCreating={setCreating}
+              editing={editing}
+              setEditing={setEditing}
+              createType={createType}
             />
         </Chat>
     </div>

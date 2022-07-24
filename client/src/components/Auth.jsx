@@ -26,11 +26,13 @@ const Auth = () => {
     }
 
     const handleSubmit = async (e) => {
+        try {
+        console.log('handleSubmit..')
         e.preventDefault()
         const {fullName, username, password, phoneNumber, avatarURL} = form;
-        const URL = 'https://localhost:5000/auth'
+        const URL = 'http://localhost:5000/auth'
         const {data: {token, userID, hashedPassword}} = await axios.post(`${URL}/${onSignup ? 'signup' : 'signin'}`,
-        {username, password, fullName, phoneNumber, avatarURL})
+        {username, password, fullName: form.fullName, phoneNumber, avatarURL})
 
         cookies.set('token', token)
         cookies.set('username', username)
@@ -42,8 +44,11 @@ const Auth = () => {
             cookies.set('avatarURL', avatarURL)
             cookies.set('hashedPassword', hashedPassword)
         }
-
         window.location.reload()
+        } catch (error) {
+            console.log(error)
+        }
+        
 
     }
 
@@ -89,13 +94,13 @@ const Auth = () => {
                         </div>
                     )}
                     <div className='auth__form-container_fields-content_button'>
-                        <button>{onSignup ? 'Sign In' : 'Get Started!'}</button>
+                        <button>{onSignup ? 'Sign Up' : 'Get Started!'}</button>
                     </div>
                 </form>
                 <div className='auth__form-container_fields-account'>
                         <p>{onSignup ? 'Already have an account?' : "Don't have an account?"}
                             <span onClick={switchType}>
-                                {onSignup ? "  Sign In" : "  Create a new account"}
+                                {onSignup ? "  Sign In" : " Get Started!"}
                             </span>
                         </p>
                 </div>

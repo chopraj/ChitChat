@@ -8,15 +8,17 @@ import TeamChannelList from './TeamChannelList'
 import ChatIcon from '../assets/textbubble2.png'
 import LogoutIcon from '../assets/Logout.png'
 
-const SideBar = () => (
+const cookies = new Cookies()
+
+const SideBar = ({logout}) => (
   <div className='channel-list__sidebar'>
     <div className='channel-list__sidebar__icon1'>
-        <div className='icon1__inner'>
+        <div  className='icon1__inner'>
           <img src={ChatIcon} width='30'/>
         </div>
     </div>
     <div className='channel-list__sidebar__icon2'>
-        <div className='icon1__inner'>
+        <div onClick={logout} className='icon1__inner'>
           <img src={LogoutIcon} alt='Logout' width='30'/>
         </div>
     </div>
@@ -32,9 +34,22 @@ const OrgHeader = () => (
 )
 
 const ChannelListContainer = () => {
+
+  const logout = () => {
+    cookies.remove('userID')
+    cookies.remove('username')
+    cookies.remove('fullName')
+    cookies.remove('avatarURL')
+    cookies.remove('hashedPassword')
+    cookies.remove('phoneNumber')
+    cookies.remove('token')
+
+    window.location.reload()
+  }
+
   return (
     <>
-      <SideBar />
+      <SideBar logout={logout}/>
       <div className='channel-list__list__wrapper'>
         <OrgHeader />
         <ChannelSearch />
