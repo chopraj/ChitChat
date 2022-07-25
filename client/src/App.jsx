@@ -43,6 +43,7 @@ const App = () => {
               creating={creating}
               setCreating={setCreating}
               createType={createType}
+              setCreateType={setCreateType}
               setEditing={setEditing}
             />
             <ChannelContainer

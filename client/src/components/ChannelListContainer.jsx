@@ -33,7 +33,7 @@ const OrgHeader = () => (
   </div>
 )
 
-const ChannelListContainer = () => {
+const ChannelListContainer = ({creating, setCreating, createType, setCreateType, setEditing}) => {
 
   const logout = () => {
     cookies.remove('userID')
@@ -60,6 +60,10 @@ const ChannelListContainer = () => {
             <TeamChannelList
               {...listProps}
               type='team'
+              Creating={creating}
+              setCreating={setCreating}
+              setCreateType={setCreateType}
+              setEditing={setEditing}
             />
           )}
           Preview={(prevProps)=>{
