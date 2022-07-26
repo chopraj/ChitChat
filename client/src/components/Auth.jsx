@@ -29,9 +29,9 @@ const Auth = () => {
         try {
         console.log('handleSubmit..')
         e.preventDefault()
-        const {fullName, username, password, phoneNumber, avatarURL} = form;
+        const {username, password, phoneNumber, avatarURL} = form;
         const URL = 'http://localhost:5000/auth'
-        const {data: {token, userID, hashedPassword}} = await axios.post(`${URL}/${onSignup ? 'signup' : 'signin'}`,
+        const {data: {token, userID, hashedPassword, fullName}} = await axios.post(`${URL}/${onSignup ? 'signup' : 'signin'}`,
         {username, password, fullName: form.fullName, phoneNumber, avatarURL})
 
         cookies.set('token', token)

@@ -1,15 +1,40 @@
 import React, {useState, useEffect} from 'react'
 import { useChatContext } from 'stream-chat-react'
-
+import Results from './Results'
 import {SearchIcon} from '../assets/SearchIcon'
 
-const ChannelSearch = () => {
+
+const ChannelSearch = ({setToggleType}) => {
+  const {client, setActiveChannel} = useChatContext()
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(false)
+  const [teamChannels, setTeamChannels] = useState([])
+  const [directMessagingChannels, setDirectMessagingChannels] = useState([])
+
+  useEffect(() => {
+    if(!query){
+      setTeamChannels([])
+      setDirectMessagingChannels([])
+    }
+  },[query])
 
   const getChannels = async (text) => {
     try {
-      // TODO: fetch channels
+      const channelsResponse = client.queryChannels({
+        type: 'team', 
+        name: {$autocomplete: text},  
+        members: { $in: [client.userID]}
+      })
+
+      const userResponse = client.queryUsers({
+        id: { $ne: client.userID}, 
+        name: {$autocomplete: text},
+      })
+
+      const [channels, {users}] = await Promise.all([channelsResponse, userResponse])
+
+      if(channels.length) setTeamChannels(channels)
+      if (users.length) setDirectMessagingChannels(users)
     } catch (error) {
       setQuery('')
     }
@@ -20,6 +45,11 @@ const ChannelSearch = () => {
     setLoading(true)
     setQuery(e.target.value);
     getChannels(e.target.value)
+  }
+
+  const setChannel = (c) => {
+    setQuery('')
+    setActiveChannel(c)
   }
 
 
@@ -37,6 +67,16 @@ const ChannelSearch = () => {
               onChange={onSearch}
               />
       </div>
+      {query && (
+        <Results 
+        teamChannels={teamChannels}
+        directMessagingChannels={directMessagingChannels}
+        loading={loading}
+        setChannel={setChannel}
+        setQuery={setQuery}
+        setToggleType={setToggleType}
+        />
+      )}
     </div>
   )
 }
