@@ -18,7 +18,7 @@ const ChannelNameInput = ({ channelName = '', setChannelName }) => {
     return (
         <div className="channel-name-input__wrapper">
             <p>Name</p>
-            <input value={channelName} onChange={handleChange} placeholder="channel-name" />
+            <input value={channelName == null ? "" : channelName} onChange={handleChange} placeholder="channel-name" />
             <p>Add Members</p>
         </div>
     )
@@ -32,7 +32,7 @@ const reset = (setChannelName, setEditing, setSelectedUsers) => {
 
 const EditChannel = ({setEditing}) => {
   const {channel} = useChatContext()
-  const [channelName, setChannelName] = useState(channel?.data?.name)
+  const [channelName, setChannelName] = useState(channel?.data?.name || '')
   const [selectedUsers, setSelectedUsers] = useState([])
 
   const updateChann = async (e) => {
