@@ -9,7 +9,6 @@ const initState = {
     fullName: '',
     username: '',
     password: '',
-    confirmPassword: '',
     phoneNumber: '',
     avatarURL: '',
 }
@@ -87,12 +86,6 @@ const Auth = () => {
                             <label htmlFor='password'>Password</label>
                             <input required onChange={handleChange} placeholder='Password' type='password' name='password'></input>
                         </div>
-                    {onSignup && (
-                        <div className='auth__form-container_fields-content_input'>
-                            <label htmlFor='confirmPassword'>Confirm Password</label>
-                            <input required onChange={handleChange} placeholder='Confirm Password' type='password' name='confirmPassword'></input>
-                        </div>
-                    )}
                     <div className='auth__form-container_fields-content_button'>
                         <button>{onSignup ? 'Sign Up' : 'Get Started!'}</button>
                     </div>
@@ -107,7 +100,11 @@ const Auth = () => {
             </div>
         </div>
         <div className='auth__form-container_image'>
-            <img className='greetingimg' src={SignInImage}/>
+            <div className='typing-wrapper'>
+                <h1 className='welcometag'>Welcome to <u>ChitChat</u>! </h1>
+            </div>
+            <h5 className='pitch'>We provide effortless collaboration and collaboration among team members to help you drive productivity. Enjoy sending messages, links, emojis, GIFs, attachements, and more!</h5>
+            <img  src={SignInImage}/>
         </div>
     </div>
   )
