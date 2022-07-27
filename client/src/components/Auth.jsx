@@ -57,6 +57,9 @@ const Auth = () => {
   return (
     <div className='auth__form-container'>
         <div className='auth__form-container_fields'>
+        <div className='typing-wrapper'>
+                <h1 className='welcometag'>Welcome to <u>ChitChat</u>!</h1>
+            </div>
             <div className='auth__form-container_fields-content'>
                 <p>{onSignup ? 'Sign Up' : 'Sign In'}</p>
                 <form onSubmit={handleSubmit}>
@@ -87,7 +90,7 @@ const Auth = () => {
                             <input required onChange={handleChange} placeholder='Password' type='password' name='password'></input>
                         </div>
                     <div className='auth__form-container_fields-content_button'>
-                        <button>{onSignup ? 'Sign Up' : 'Get Started!'}</button>
+                        <button>{onSignup ? 'Get Started!' : 'Welcome back!'}</button>
                     </div>
                 </form>
                 <div className='auth__form-container_fields-account'>
@@ -100,10 +103,10 @@ const Auth = () => {
             </div>
         </div>
         <div className='auth__form-container_image'>
-            <div className='typing-wrapper'>
-                <h1 className='welcometag'>Welcome to <u>ChitChat</u>! </h1>
-            </div>
-            <h5 className='pitch'>We provide effortless collaboration and collaboration among team members to help you drive productivity. Enjoy sending messages, links, emojis, GIFs, attachements, and more!</h5>
+            
+            
+            <h5 className='pitch'> <u>Communication</u> and <u>Collaboration</u> made easy.</h5>
+            <h6 className='subpitch'>Enjoy sending messages, emojis, GIFs, and attachments among your team!</h6>
             <img  src={SignInImage}/>
         </div>
     </div>

@@ -7,13 +7,13 @@ const TeamChannelPreview = ({setActiveChannel, setCreating, setEditing, setToggl
 
   const ChannelPreview = () => (
     <p className='channel-preview__item'>
-      {channel?.data?.name ||channel?.data?.id}
+      {channel?.data?.name || channel?.data?.id}
     </p>
   )
 
   const DirectPreview = () => {
     const members = Object.values(channel.state.members).filter(({user}) => user.id !== client.userID)
-    console.log(members[0])
+    // console.log(members[0])
 
     return (
       <div className="channel-preview__item single">

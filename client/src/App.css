@@ -1,6 +1,5 @@
 :root {
-    --primary-color: #86b1c7;
-    --primary-color-alpha: #86b1c71a;
+    --primary-color: #86b1c7 !important;
   }
   
   html,
@@ -40,8 +39,8 @@
   }
   
   .auth__form-container_image img {
-    height: 60%;
-    width: 75%;
+    height: 30vw;
+    width: 50vw;
   }
   
   .auth__form-container_fields-content {
@@ -57,13 +56,13 @@
   }
 
   .welcometag {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #05245a;
     font-weight: 900;
-    width: 20ch;
+    width: 19ch;
     text-align: center;
-    animation: typing 2s steps(20), blink .5s step-end infinite alternate;
+    animation: typing 3s steps(20), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
@@ -82,6 +81,7 @@
   }
 
   .typing-wrapper {
+    margin-bottom: 17%;
     display: grid;
     place-items: center
   }
@@ -90,12 +90,21 @@
 
 
   .pitch {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #05245a;
+    font-weight: 600;
+    text-align: center;
+    width: 89%;
+    margin-bottom: 5px;
+  }
+  .subpitch {
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #05245a;
-    font-weight: 350;
+    font-weight: 600;
     text-align: center;
-    width: 75%;
+    width: 89%;
   }
   
   .auth__form-container_fields-content p {
@@ -167,7 +176,7 @@
     border-radius: 4px;
     background: #86b1c7;
     border: 1px solid #86b1c7;
-    color: #fff;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     padding: 0.7rem 1.2rem;
@@ -180,6 +189,7 @@
   
   .auth__form-container_fields-content_button button:hover {
     background: #19547b;
+    color: white;
     border: 1px solid #19547b;
   }
   .auth__form-container_fields-content_button button:active {
@@ -218,6 +228,7 @@
     }
   
     .auth__form-container_image {
+      display: none;
       height: 100px;
       flex: none;
       box-shadow: none;
@@ -426,7 +437,7 @@
   .channel-list__sidebar {
     width: 72px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      var(--primary-color);
+    var(--primary-color);
     box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
     /* border-top-left-radius: 16px; */
     /* border-bottom-left-radius: 16px; */
@@ -462,8 +473,8 @@
   }
   
   .channel-list__sidebar__icon2 {
-    width: 44px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
     margin: 14px;
     background: linear-gradient(
         150.64deg,
@@ -478,6 +489,7 @@
   
   .icon2__inner {
     font-family: Helvetica Neue, sans-serif;
+    margin-left: 11px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -487,6 +499,9 @@
   .channel-list__header {
     padding-left: 16px;
     height: 62px;
+    display: flex;
+    flex-direction: row;
+    flex: 4;
   }
   
   .channel-list__header__text {
@@ -1016,7 +1031,7 @@
   
   .team-channel-list__header__title {
     font-family: Helvetica Neue, sans-serif;
-    font-size: 13px;
+    font-size: 1.2rem;
     line-height: 16px;
     height: 16px;
     color: rgba(255, 255, 255, 0.66);
@@ -1033,7 +1048,7 @@
     height: auto;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgb(84, 127,149);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     font-weight: bold;
@@ -1605,6 +1620,10 @@
     font-size: 14px;
     line-height: 17px;
     color: #858688;
+  }
+
+  .EditChannelIcon{
+    cursor: pointer;
   }
   
   .str-chat__thread .str-chat__square-button {

@@ -26,9 +26,14 @@ const SideBar = ({ logout }) => (
     </div>
 );
 
-const OrgHeader = () => (
+const OrgHeader = ({logout}) => (
     <div className="channel-list__header">
-        <p className="channel-list__header__text">Welcome to ChitChat</p>
+        <p className="channel-list__header__text"> ~ChitChat Hub~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <div className="channel-list__sidebar__icon2">
+            <div title="Logout" className="icon1__inner" onClick={logout}>
+                <img src={LogoutIcon} alt="Logout" width="22"/>
+            </div>
+        </div>
     </div>
 )
 
@@ -59,9 +64,9 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
 
     return (
         <>
-            <SideBar logout={logout} />
+            {/*(<SideBar logout={logout} />*/}
             <div className="channel-list__list__wrapper">
-                <OrgHeader />
+                <OrgHeader logout={logout}/>
                 <ChannelSearch setToggleType={setToggleType} />
                 <ChannelList 
                     filters={filters}
