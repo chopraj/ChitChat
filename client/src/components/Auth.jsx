@@ -29,7 +29,7 @@ const Auth = () => {
         console.log('handleSubmit..')
         e.preventDefault()
         const {username, password, phoneNumber, avatarURL} = form;
-        const URL = 'http://localhost:5001/auth'
+        const URL = 'https://chitchat-messaging-app.herokuapp.com//auth'
         const {data: {token, userID, hashedPassword, fullName}} = await axios.post(`${URL}/${onSignup ? 'signup' : 'signin'}`,
         {username, password, fullName: form.fullName, phoneNumber, avatarURL})
 
@@ -107,7 +107,7 @@ const Auth = () => {
             
             <h5 className='pitch'> <u>Communication</u> and <u>Collaboration</u> made easy.</h5>
             <h6 className='subpitch'>Enjoy sending messages, emojis, GIFs, and attachments among your team!</h6>
-            <img  src={SignInImage}/>
+            <img  src={SignInImage} alt=''/>
         </div>
     </div>
   )

@@ -1,5 +1,4 @@
 import React from 'react'
-import { UserFromToken } from 'stream-chat'
 import {Avatar, useChatContext} from 'stream-chat-react'
 
 const TeamChannelPreview = ({setActiveChannel, setCreating, setEditing, channel, type}) => {

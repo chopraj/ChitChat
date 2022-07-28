@@ -69,7 +69,7 @@ const TeamChannelHeader = ({ setEditing }) => {
         <div className='team-channel-header__channel-wrapper'>
           <p className='team-channel-header__name'> {channel.data.name}</p>
           <span style={{ display: 'flex' }} >
-            <img onClick={() => setEditing(true)} className='EditChannelIcon' title='Edit Channel' src={Edit} width="20px"/>
+            <img onClick={() => setEditing(true)} className='EditChannelIcon' title='Edit Channel' src={Edit} width="20px" alt='Edit'/>
           </span>
         </div>
       );
