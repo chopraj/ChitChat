@@ -1,4 +1,4 @@
-const {connect, CollectionEntry} = require('getStream')
+const {connect, CollectionEntry} = require('getstream')
 const bcrypt = require('bcrypt')
 const StreamChat = require('stream-chat').StreamChat
 const crypto = require('crypto')
