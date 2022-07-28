@@ -48,7 +48,6 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing }
 
     return (
         <>
-            {/*(<SideBar logout={logout} />*/}
             <div className="channel-list__list__wrapper">
                 <OrgHeader logout={logout}/>
                 <ChannelSearch />
@@ -118,19 +117,6 @@ const ChannelListContainer = ({ setCreateType, setCreating, setEditing }) => {
                 setEditing={setEditing} 
               />
             </div>
-            {/*<div className="channel-list__container-responsive"
-                style={{ left: toggleType ? "0%" : "-89%", backgroundColor: "86b1c7"}}
-            >
-                <div className="channel-list__container-toggle" onClick={() => setToggleType((p) => !p)}>
-                </div>
-                <ChannelListContent 
-                setCreating={setCreating} 
-                setCreateType={setCreateType} 
-                setEditing={setEditing}
-                setToggleType={setToggleType}
-              />
-            </div>*/}
-            
         </>
     )
 

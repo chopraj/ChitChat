@@ -29,7 +29,7 @@ const Auth = () => {
         console.log('handleSubmit..')
         e.preventDefault()
         const {username, password, phoneNumber, avatarURL} = form;
-        const URL = 'https://chitchat-messaging-app.herokuapp.com//auth'
+        const URL = 'https://chitchat-messaging-app.herokuapp.com/auth'
         const {data: {token, userID, hashedPassword, fullName}} = await axios.post(`${URL}/${onSignup ? 'signup' : 'signin'}`,
         {username, password, fullName: form.fullName, phoneNumber, avatarURL})
 

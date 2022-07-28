@@ -434,29 +434,6 @@
     box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.1);
   }
   
-  .channel-list__sidebar {
-    width: 72px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    var(--primary-color);
-    box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
-    /* border-top-left-radius: 16px; */
-    /* border-bottom-left-radius: 16px; */
-  }
-  
-  .channel-list__sidebar__icon1 {
-    width: 44px;
-    height: 44px;
-    margin: 14px;
-    background: linear-gradient(
-        150.64deg,
-        rgba(0, 0, 0, 0.1) 12.73%,
-        rgba(0, 0, 0, 0) 89.32%
-      ),
-      #ffffff;
-    border-radius: 9999px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
-  }
-  
   .channel-list__list__wrapper {
     display: flex;
     flex-direction: column;
@@ -1781,29 +1758,6 @@
     display: none;
   }
   
-  .channerl-list__container-toggle {
-    display: none;
-    height: 50px;
-    width: 50px;
-    background: #86b1c7;
-    position: absolute;
-    right: -2%;
-    top: 50%;
-    border-radius: 50%;
-    z-index: 2;
-  }
-  
-  .channel-list__container-responsive {
-    display: none;
-    height: 100%;
-    box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    width: 90%;
-    top: 0%;
-    z-index: 5;
-    transition: 0.8s ease;
-  }
-  
   .str-chat__input-flat {
     width: 100%;
     padding: 10px;
@@ -1845,16 +1799,8 @@
       padding-left: 10px;
     }
   
-    .channel-list__container-responsive {
-      display: flex;
-    }
-  
     .channel-list__list__wrapper {
       width: 100%;
-    }
-  
-    .channerl-list__container-toggle {
-      display: flex;
     }
   
     .channel-search__input__wrapper {
@@ -1877,25 +1823,8 @@
     }
   }
   
-  @media screen and (max-width: 650px) {
-    .channerl-list__container-toggle {
-      right: -3%;
-    }
-  }
-  
   @media screen and (max-width: 400px) {
     .channel-preview__item.multi {
       width: 150px;
     }
-  
-    .channerl-list__container-toggle {
-      right: -5%;
-    }
   }
-  
-  @media screen and (max-width: 320px) {
-    .channel-list__sidebar {
-      display: none;
-    }
-  }
-  
