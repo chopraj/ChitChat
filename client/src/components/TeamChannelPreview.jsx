@@ -36,7 +36,7 @@ const TeamChannelPreview = ({setActiveChannel, setCreating, setEditing, channel,
       setCreating(false)
       setEditing(false)
       setActiveChannel(channel)
-      console.log(channel)
+      // console.log(channel)
     }}
     >
       {type === 'team' ? <ChannelPreview/> : <DirectPreview/>}

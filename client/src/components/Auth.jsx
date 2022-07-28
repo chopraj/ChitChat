@@ -26,7 +26,7 @@ const Auth = () => {
 
     const handleSubmit = async (e) => {
         try {
-        console.log('handleSubmit..')
+        // console.log('handleSubmit..')
         e.preventDefault()
         const {username, password, phoneNumber, avatarURL} = form;
         const URL = 'https://chitchat-messaging-app.herokuapp.com/auth'
