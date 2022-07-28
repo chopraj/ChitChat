@@ -19,7 +19,7 @@ const channelFromUser = async ({ client, setActiveChannel, channel, setChannel }
   return setActiveChannel(newChannel);
 };
 
-const SearchResult = ({ channel, focusedId, type, setChannel, setToggleType }) => {
+const SearchResult = ({ channel, focusedId, type, setChannel }) => {
   const { client, setActiveChannel } = useChatContext();
 
   if (type === 'channel') {
@@ -27,9 +27,6 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleType }) =
       <div
         onClick={() => {
           setChannel(channel)
-          if(setToggleType) {
-            setToggleType((p) => !p)   
-          }
         }}
         className={focusedId === channel.id ? 'channel-search__result-container__focused' : 'channel-search__result-container' }
       >
@@ -43,9 +40,6 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleType }) =
     <div
       onClick={async () => {
         channelFromUser({ client, setActiveChannel, channel, setChannel })
-        if(setToggleType) {
-            setToggleType((p) => !p)   
-        }
       }}
       className={focusedId === channel.id ? 'channel-search__result-container__focused' : 'channel-search__result-container' }
     >
@@ -57,7 +51,7 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleType }) =
   );
 };
 
-const Results = ({ teamChannels, directMessagingChannels, focusedId, loading, setChannel, setToggleType }) => {
+const Results = ({ teamChannels, directMessagingChannels, focusedId, loading, setChannel }) => {
 
   return (
     <div className='channel-search__results'>
@@ -79,7 +73,6 @@ const Results = ({ teamChannels, directMessagingChannels, focusedId, loading, se
             key={index}
             setChannel={setChannel}
             type='channel'
-            setToggleType={setToggleType}
           />
         ))
       )}
@@ -101,7 +94,6 @@ const Results = ({ teamChannels, directMessagingChannels, focusedId, loading, se
             key={index}
             setChannel={setChannel}
             type='user'
-            setToggleType={setToggleType}
           />
         ))
       )}

@@ -3,10 +3,12 @@ const cors = require('cors')
 
 const authRoutes = require('./routes/auth.js')
 
-const app = express()
-const PORT = process.env.PORT || 5000
 
 require('dotenv').config()
+const app = express()
+const PORT = process.env.PORT || 5001
+
+
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID 
 const authToken = process.env.TWILIO_ACCOUNT_TOKEN

@@ -4,7 +4,7 @@ import Results from './Results'
 import {SearchIcon} from '../assets/SearchIcon'
 
 
-const ChannelSearch = ({setToggleType}) => {
+const ChannelSearch = () => {
   const {client, setActiveChannel} = useChatContext()
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(false)
@@ -74,7 +74,7 @@ const ChannelSearch = ({setToggleType}) => {
         loading={loading}
         setChannel={setChannel}
         setQuery={setQuery}
-        setToggleType={setToggleType}
+        
         />
       )}
     </div>

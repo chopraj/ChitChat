@@ -3,7 +3,6 @@ import {Channel, useChatContext, MessageTeam} from 'stream-chat-react'
 import ChannelInner from './ChannelInner'
 import CreateChannel from './CreateChannel'
 import EditChannel from './EditChannel'
-import TeamMessage from './TeamMessage'
 
 
 

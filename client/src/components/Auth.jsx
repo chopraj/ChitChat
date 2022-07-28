@@ -29,7 +29,7 @@ const Auth = () => {
         console.log('handleSubmit..')
         e.preventDefault()
         const {username, password, phoneNumber, avatarURL} = form;
-        const URL = 'http://localhost:5000/auth'
+        const URL = 'http://localhost:5001/auth'
         const {data: {token, userID, hashedPassword, fullName}} = await axios.post(`${URL}/${onSignup ? 'signup' : 'signin'}`,
         {username, password, fullName: form.fullName, phoneNumber, avatarURL})
 
@@ -76,13 +76,13 @@ const Auth = () => {
                     {onSignup && (
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='Phone Number'>Phone Number</label>
-                            <input required onChange={handleChange} placeholder='Phone Number' type='number' name='phoneNumber'></input>
+                            <input  onChange={handleChange} placeholder='Optional' type='number' name='phoneNumber'></input>
                         </div>
                     )}
                     {onSignup && (
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='avatarURL'>Avatar URL</label>
-                            <input required onChange={handleChange} placeholder='Avatar URL' type='text' name='avatarURL'></input>
+                            <input  onChange={handleChange} placeholder='Optional' type='text' name='avatarURL'></input>
                         </div>
                     )}
                         <div className='auth__form-container_fields-content_input'>

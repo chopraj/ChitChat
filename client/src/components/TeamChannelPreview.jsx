@@ -2,7 +2,7 @@ import React from 'react'
 import { UserFromToken } from 'stream-chat'
 import {Avatar, useChatContext} from 'stream-chat-react'
 
-const TeamChannelPreview = ({setActiveChannel, setCreating, setEditing, setToggleType, channel, type}) => {
+const TeamChannelPreview = ({setActiveChannel, setCreating, setEditing, channel, type}) => {
   const {channel: activeChannel, client} = useChatContext()
 
   const ChannelPreview = () => (
@@ -37,9 +37,6 @@ const TeamChannelPreview = ({setActiveChannel, setCreating, setEditing, setToggl
       setCreating(false)
       setEditing(false)
       setActiveChannel(channel)
-      if(setToggleType){
-        setToggleType((p)=> !p)
-      }
       console.log(channel)
     }}
     >

@@ -5,30 +5,14 @@ import Cookies from 'universal-cookie';
 import ChannelSearch from './ChannelSearch'
 import TeamChannelPreview from './TeamChannelPreview'
 import TeamChannelList from './TeamChannelList'
-import ChatIcon from '../assets/textbubble2.png'
 import LogoutIcon from '../assets/Logout.png'
 
 
 const cookies = new Cookies();
 
-const SideBar = ({ logout }) => (
-    <div className="channel-list__sidebar">
-        <div className="channel-list__sidebar__icon1">
-            <div className="icon1__inner">
-                <img src={ChatIcon} alt="Hospital" width="30" />
-            </div>
-        </div>
-        <div className="channel-list__sidebar__icon2">
-            <div className="icon1__inner" onClick={logout}>
-                <img src={LogoutIcon} alt="Logout" width="30" />
-            </div>
-        </div>
-    </div>
-);
-
 const OrgHeader = ({logout}) => (
     <div className="channel-list__header">
-        <p className="channel-list__header__text"> ~ChitChat Hub~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p className="channel-list__header__text">ChitChat Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         <div className="channel-list__sidebar__icon2">
             <div title="Logout" className="icon1__inner" onClick={logout}>
                 <img src={LogoutIcon} alt="Logout" width="22"/>
@@ -45,7 +29,7 @@ const ChannelMessagingFilter = (channels) => {
     return channels.filter((c) => c.type === 'messaging');
 }
 
-const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, setToggleType }) => {
+const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing }) => {
     const { client } = useChatContext();
 
     const logout = () => {
@@ -67,7 +51,7 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
             {/*(<SideBar logout={logout} />*/}
             <div className="channel-list__list__wrapper">
                 <OrgHeader logout={logout}/>
-                <ChannelSearch setToggleType={setToggleType} />
+                <ChannelSearch />
                 <ChannelList 
                     filters={filters}
                     channelRenderFilterFn={ChannelTeamFilter}
@@ -79,7 +63,7 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
                             setCreating={setCreating}
                             setCreateType={setCreateType} 
                             setEditing={setEditing}
-                            setToggleType={setToggleType}
+                            
                         />
                     )}
                     Preview={(previewProps) => (
@@ -87,7 +71,7 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
                             {...previewProps}
                             setCreating={setCreating}
                             setEditing={setEditing}
-                            setToggleType={setToggleType}
+                            
                             type="team"
                         />
                     )}
@@ -103,7 +87,7 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
                             setCreating={setCreating}
                             setCreateType={setCreateType} 
                             setEditing={setEditing}
-                            setToggleType={setToggleType}
+                            
                         />
                     )}
                     Preview={(previewProps) => (
@@ -112,7 +96,7 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
                             creating={creating}
                             setCreating={setCreating}
                             setEditing={setEditing}
-                            setToggleType={setToggleType}
+                            
                             type="messaging"
                         />
                     )}
@@ -123,7 +107,7 @@ const ChannelListContent = ({ creating, setCreating, setCreateType, setEditing, 
 }
 
 const ChannelListContainer = ({ setCreateType, setCreating, setEditing }) => {
-    const [toggleType, setToggleType] = useState(false);
+    
 
     return (
         <>
@@ -134,9 +118,8 @@ const ChannelListContainer = ({ setCreateType, setCreating, setEditing }) => {
                 setEditing={setEditing} 
               />
             </div>
-
-            <div className="channel-list__container-responsive"
-                style={{ left: toggleType ? "0%" : "-89%", backgroundColor: "#005fff"}}
+            {/*<div className="channel-list__container-responsive"
+                style={{ left: toggleType ? "0%" : "-89%", backgroundColor: "86b1c7"}}
             >
                 <div className="channel-list__container-toggle" onClick={() => setToggleType((p) => !p)}>
                 </div>
@@ -146,7 +129,8 @@ const ChannelListContainer = ({ setCreateType, setCreating, setEditing }) => {
                 setEditing={setEditing}
                 setToggleType={setToggleType}
               />
-            </div>
+            </div>*/}
+            
         </>
     )
 
